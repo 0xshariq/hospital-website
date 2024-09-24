@@ -1,43 +1,44 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { Menu, X } from "lucide-react"
-import { useState, useEffect } from "react"
+import Link from "next/link";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Component() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-    }
+      setScrolled(window.scrollY > 20);
+    };
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className={`fixed w-full z-10 bg-white transition-all duration-300 ${scrolled ? 'shadow-md' : ''}`}>
+    <nav
+      className={`fixed w-full z-10 bg-white transition-all duration-300 ${
+        scrolled ? "shadow-md" : ""
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/435273729_751711263744527_5426922841830167348_n-removebg-preview%20(1)-9iQuAyEsyuOesqzFOXtTedXVoxzAHx.png"
                 alt="Extra Care Medical Center Logo"
-                width={70}
-                height={70}
-                className="mr-3"
+                width={150}
+                height={150}
+                className="mr-2"
               />
-              <span className="text-3xl font-bold text-blue-600 hover:text-blue-800 transition-colors duration-300">
-                Extra Care Medical Center
-              </span>
             </Link>
           </div>
           <div className="hidden md:block">
@@ -57,18 +58,24 @@ export default function Component() {
             >
               <span className="sr-only">Toggle main menu</span>
               {isMenuOpen ? (
-                <X className="block h-8 w-8 transition-transform duration-300 rotate-90" aria-hidden="true" />
+                <X
+                  className="block h-6 w-6 transition-transform duration-300 rotate-90"
+                  aria-hidden="true"
+                />
               ) : (
-                <Menu className="block h-8 w-8 transition-transform duration-300" aria-hidden="true" />
+                <Menu
+                  className="block h-6 w-6 transition-transform duration-300"
+                  aria-hidden="true"
+                />
               )}
             </button>
           </div>
         </div>
       </div>
 
-      <div 
+      <div
         className={`md:hidden transition-all duration-300 ease-in-out ${
-          isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+          isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
         } overflow-hidden`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-md">
@@ -80,10 +87,16 @@ export default function Component() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+function NavLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
   return (
     <Link
       href={href}
@@ -91,10 +104,16 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
     >
       {children}
     </Link>
-  )
+  );
 }
 
-function MobileNavLink({ href, children }: { href: string; children: React.ReactNode }) {
+function MobileNavLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
   return (
     <Link
       href={href}
@@ -102,5 +121,5 @@ function MobileNavLink({ href, children }: { href: string; children: React.React
     >
       {children}
     </Link>
-  )
+  );
 }
