@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { useState, useEffect } from "react"
 
@@ -24,10 +25,19 @@ export default function Component() {
   return (
     <nav className={`fixed w-full z-10 bg-white transition-all duration-300 ${scrolled ? 'shadow-md' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold text-blue-600 hover:text-blue-800 transition-colors duration-300">
-              Extra Care Medical Center
+        <div className="flex items-center justify-between h-20">
+          <div className="flex-shrink-0 flex items-center">
+            <Link href="/" className="flex items-center">
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/435273729_751711263744527_5426922841830167348_n-removebg-preview%20(1)-9iQuAyEsyuOesqzFOXtTedXVoxzAHx.png"
+                alt="Extra Care Medical Center Logo"
+                width={70}
+                height={70}
+                className="mr-3"
+              />
+              <span className="text-3xl font-bold text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                Extra Care Medical Center
+              </span>
             </Link>
           </div>
           <div className="hidden md:block">
@@ -47,9 +57,9 @@ export default function Component() {
             >
               <span className="sr-only">Toggle main menu</span>
               {isMenuOpen ? (
-                <X className="block h-6 w-6 transition-transform duration-300 rotate-90" aria-hidden="true" />
+                <X className="block h-8 w-8 transition-transform duration-300 rotate-90" aria-hidden="true" />
               ) : (
-                <Menu className="block h-6 w-6 transition-transform duration-300" aria-hidden="true" />
+                <Menu className="block h-8 w-8 transition-transform duration-300" aria-hidden="true" />
               )}
             </button>
           </div>
