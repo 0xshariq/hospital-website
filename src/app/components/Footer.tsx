@@ -42,13 +42,10 @@ export default function Footer() {
       )}
       <div className="bg-blue-600 text-white py-8">
         <div className="container mx-auto px-4">
-          <nav className="flex flex-col md:flex-row justify-between items-center">
+          <nav className="flex flex-col md:flex-row justify-between items-center h-auto">
             <div className="flex flex-wrap justify-center space-x-6 mb-4 md:mb-0">
               <Link href="/about" className="hover:underline py-2">
                 About Us
-              </Link>
-              <Link href="/services" className="hover:underline py-2">
-                Services
               </Link>
               <Link href="/doctors" className="hover:underline py-2">
                 Our Doctors
@@ -124,7 +121,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-gray-200 mt-8 py-4">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
           <div>
             © 2024 Extra Care Medical Center. All Rights Reserved. MOH Approval
             No. EC12345

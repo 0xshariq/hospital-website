@@ -84,7 +84,7 @@ export default function Navbar() {
                     <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-300 ${isSpecialtiesOpen ? 'rotate-180' : ''}`} />
                   </button>
                   <div className={`absolute left-0 mt-2 w-[calc(100vw-2rem)] max-w-4xl bg-white shadow-lg rounded-md transition-all duration-300 ease-in-out ${isSpecialtiesOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`} style={{ transform: 'translateX(-25%)' }}>
-                    <div className="p-4 grid grid-cols-4 gap-4">
+                    <div className="p-4 grid grid-cols-4 gap-4 gap-x-4">
                       {specialties.map((specialty, index) => (
                         <Link
                           key={index}
