@@ -53,9 +53,6 @@ export default function Footer() {
               <Link href="/patients" className="hover:underline py-2">
                 Patient Info
               </Link>
-              <Link href="/contact" className="hover:underline py-2">
-                Contact Us
-              </Link>
               <Link href="/feedback" className="hover:underline py-2">
                 Feedback
               </Link>
