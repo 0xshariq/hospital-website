@@ -42,17 +42,11 @@ export default function Navbar() {
   }, [])
 
   const specialties = [
-    "Anesthesiology", "Ayurveda", "Cardiology", "Dental and Maxillofacial Surgery",
-    "Dermatology", "ENT", "Family Medicine", "General Medicine",
-    "Gastroenterology and GI Surgery", "General and Laparoscopic Surgery", "Internal Medicine", "Nephrology",
-    "Neurology and Neurosurgery", "Obstetrics and Gynecology", "Oncology", "Ophthalmology",
-    "Orthopedics and Joint Replacement", "Pathology", "Pediatrics", "Physiotherapy",
-    "Respiratory Medicine", "Radiology", "Rheumatology", "Urgent Care",
-    "Urology"
+    "Dental","Cardiology","Internal Medicine"
   ]
 
   return (
-    <nav className={`sticky mt-0 w-full z-10 bg-white transition-all duration-300 ${scrolled ? 'shadow-md' : ''}`}>
+    <nav className={`sticky top-0 z-10 bg-white transition-all duration-300 mt-0 ${scrolled ? 'shadow-md' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -83,13 +77,13 @@ export default function Navbar() {
                     Specialties
                     <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-300 ${isSpecialtiesOpen ? 'rotate-180' : ''}`} />
                   </button>
-                  <div className={`absolute left-0 mt-2 w-[calc(100vw-2rem)] max-w-4xl bg-white shadow-lg rounded-md transition-all duration-300 ease-in-out ${isSpecialtiesOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`} style={{ transform: 'translateX(-25%)' }}>
-                    <div className="p-4 grid grid-cols-4 gap-4 gap-x-4">
+                  <div className={`absolute left-0 mt-2 w-[calc(100vw-2rem)] max-w-7xl bg-white shadow-lg rounded-md transition-all duration-300 ease-in-out ${isSpecialtiesOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`} style={{ transform: 'translateX(-25%)' }}>
+                    <div className="p-6 grid grid-cols-4 gap-x-8 gap-y-4">
                       {specialties.map((specialty, index) => (
                         <Link
                           key={index}
                           href={`/specialties/${specialty.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="text-gray-600 hover:text-blue-600 hover:bg-gray-100 px-3 py-2 rounded-md text-sm transition-colors duration-200"
+                          className="text-gray-600 hover:text-blue-600 hover:bg-gray-100 px-3 py-2 rounded-md text-sm transition-colors duration-200 whitespace-nowrap"
                         >
                           {specialty}
                         </Link>
@@ -97,7 +91,7 @@ export default function Navbar() {
                     </div>
                   </div>
                 </div>
-                <NavLink href="/services">Services</NavLink>
+                {/* <NavLink href="/services">Services</NavLink> */}
                 <NavLink href="/doctors">Our Doctors</NavLink>
                 <NavLink href="/appointments">Appointments</NavLink>
                 <NavLink href="/contact">Contact</NavLink>

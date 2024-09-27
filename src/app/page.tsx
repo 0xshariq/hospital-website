@@ -1,15 +1,15 @@
-import Appointments from "./components/Appointments";
-import Doctors from "./components/Doctors";
-import Footer from "./components/Footer";
-import Specialties from "./components/Specialties";
+import Appointments from "./component/Appointments";
+import Doctors from "./component/Doctors";
+import Specialties from "./component/Specialties";
+import ImageSlider from "./component/ImageSlider";
 
 export default function Home() {
   return (
     <>
+      <ImageSlider />
       <Specialties />
-      <Appointments />
       <Doctors />
-      <Footer />
+      <Appointments />
     </>
   );
 }

@@ -44,7 +44,7 @@ export default function Footer() {
         <div className="container mx-auto px-4">
           <nav className="flex flex-col md:flex-row justify-between items-center h-auto">
             <div className="flex flex-wrap justify-center space-x-6 mb-4 md:mb-0">
-              <Link href="/about" className="hover:underline py-2">
+              <Link href="/about-us" className="hover:underline py-2">
                 About Us
               </Link>
               <Link href="/doctors" className="hover:underline py-2">
@@ -56,24 +56,27 @@ export default function Footer() {
               <Link href="/contact" className="hover:underline py-2">
                 Contact Us
               </Link>
+              <Link href="/feedback" className="hover:underline py-2">
+                Feedback
+              </Link>
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a
-                href="#"
+                href="https://www.facebook.com/people/Extra-Care-Medical-Center/61551124427651/?mibextid=qi2Omg&rdid=pMvUrYzAde2lzVCi&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FhzdkPWRCAXBqRh4h%2F%3Fmibextid%3Dqi2Omg"
                 aria-label="Facebook"
                 className="hover:text-blue-200 transition-colors duration-300"
               >
                 <Facebook size={24} />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/extracareuae"
                 aria-label="LinkedIn"
                 className="hover:text-blue-200 transition-colors duration-300"
               >
                 <Linkedin size={24} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/extracareuae/?igsh=dnl3YTFwM21kM2Nv"
                 aria-label="Instagram"
                 className="hover:text-blue-200 transition-colors duration-300"
               >
@@ -89,33 +92,12 @@ export default function Footer() {
           Our Specialties
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-gray-600">
+          <SpecialtyLink href="/specialties/dental">Dental</SpecialtyLink>
           <SpecialtyLink href="/specialties/cardiology">
             Cardiology
           </SpecialtyLink>
-          <SpecialtyLink href="/specialties/orthopedics">
-            Orthopedics
-          </SpecialtyLink>
-          <SpecialtyLink href="/specialties/neurology">Neurology</SpecialtyLink>
-          <SpecialtyLink href="/specialties/pediatrics">
-            Pediatrics
-          </SpecialtyLink>
-          <SpecialtyLink href="/specialties/oncology">Oncology</SpecialtyLink>
-          <SpecialtyLink href="/specialties/dermatology">
-            Dermatology
-          </SpecialtyLink>
-          <SpecialtyLink href="/specialties/ophthalmology">
-            Ophthalmology
-          </SpecialtyLink>
-          <SpecialtyLink href="/specialties/gynecology">
-            Gynecology
-          </SpecialtyLink>
-          <SpecialtyLink href="/specialties/urology">Urology</SpecialtyLink>
-          <SpecialtyLink href="/specialties/dentistry">Dentistry</SpecialtyLink>
-          <SpecialtyLink href="/specialties/psychiatry">
-            Psychiatry
-          </SpecialtyLink>
-          <SpecialtyLink href="/specialties/physiotherapy">
-            Physiotherapy
+          <SpecialtyLink href="/specialties/internal-medicine">
+            Internal Medicine
           </SpecialtyLink>
         </div>
       </div>
