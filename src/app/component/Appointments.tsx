@@ -2,7 +2,7 @@ import React from 'react'
 
 function Appointments() {
   return (
-    <div>
+    <div className='bg-gray-50 h-5'>
       Appointment Section
     </div>
   )
