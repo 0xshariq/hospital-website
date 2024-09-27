@@ -25,7 +25,7 @@ const doctors: Doctor[] = [
     id: '1',
     name: 'Dr. Muhammad Abdul Rahman Siddiqui',
     specialization: 'Specialist Cardiologist',
-    hospital: 'LLH Hospital',
+    hospital: 'Extra Care Medical Center',
     location: 'Abu Dhabi',
     imageUrl: '/placeholder.svg?height=300&width=300'
   },
@@ -33,24 +33,24 @@ const doctors: Doctor[] = [
     id: '2',
     name: 'Dr. Anand Chatterjee',
     specialization: 'Specialist Clinical Pathologist',
-    hospital: 'LLH Hospital',
-    location: 'Musaffah',
+    hospital: 'Extra Care Medical Center',
+    location: 'Abu Dhabi',
     imageUrl: '/placeholder.svg?height=300&width=300'
   },
   {
     id: '3',
     name: 'Dr. Anand Reddy Baddula',
     specialization: 'Specialist Orthopedic Surgeon',
-    hospital: 'LLH Hospital',
-    location: 'Musaffah',
+    hospital: 'Extra Care Medical Center',
+    location: 'Abu Dhabi',
     imageUrl: '/placeholder.svg?height=300&width=300'
   },
   {
     id: '4',
     name: 'Dr. Anoop K Varghese',
     specialization: 'Specialist Gastroenterology',
-    hospital: 'LLH Hospital',
-    location: 'Musaffah',
+    hospital: 'Extra Care Medical Center',
+    location: 'Abu Dhabi',
     imageUrl: '/placeholder.svg?height=300&width=300'
   },
 ]
