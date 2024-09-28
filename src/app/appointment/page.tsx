@@ -1,36 +1,63 @@
-"use client"
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Calendar, Clock, User, Phone, MessageSquare, ChevronDown } from 'lucide-react'
+"use client";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { User, Phone, MessageSquare } from "lucide-react";
 
 export default function AppointmentPage() {
-  const [selectedDepartment, setSelectedDepartment] = useState('')
-  const [selectedDoctor, setSelectedDoctor] = useState('')
-  const [selectedDate, setSelectedDate] = useState('')
-  const [selectedTime, setSelectedTime] = useState('')
-  const [name, setName] = useState('')
-  const [phone, setPhone] = useState('')
-  const [message, setMessage] = useState('')
+  const [selectedDepartment, setSelectedDepartment] = useState("");
+  const [selectedDoctor, setSelectedDoctor] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedTime, setSelectedTime] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
 
-  const departments = ['Cardiology', 'Neurology', 'Orthopedics', 'Pediatrics', 'Dermatology']
-  const doctors = ['Dr. John Doe', 'Dr. Jane Smith', 'Dr. Mike Johnson', 'Dr. Emily Brown']
-  const times = ['09:00 AM', '10:00 AM', '11:00 AM', '02:00 PM', '03:00 PM', '04:00 PM']
+  const departments = [
+    "Cardiology",
+    "Dental",
+    "Internal Medicine"
+  ];
+  const doctors = [
+    "Dr. John Doe",
+    "Dr. Jane Smith",
+    "Dr. Mike Johnson",
+    "Dr. Emily Brown",
+  ];
+  const times = [
+    "09:00 AM",
+    "10:00 AM",
+    "11:00 AM",
+    "02:00 PM",
+    "03:00 PM",
+    "04:00 PM",
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log('Appointment submitted')
-  }
+    e.preventDefault();
+    // Handle form submission logic
+    console.log("Appointment submitted");
+  };
+
+  const handleClear = () => {
+    // Reset all form fields
+    setSelectedDepartment("");
+    setSelectedDoctor("");
+    setSelectedDate("");
+    setSelectedTime("");
+    setName("");
+    setPhone("");
+    setMessage("");
+  };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-3xl mx-auto">
-        <motion.h1 
+        <motion.h1
           initial={{ y: -20 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.5 }}
@@ -38,8 +65,9 @@ export default function AppointmentPage() {
         >
           Book Your Appointment
         </motion.h1>
-        <motion.form 
+        <motion.form
           onSubmit={handleSubmit}
+          onReset={handleClear}
           initial={{ y: 20 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.5 }}
@@ -56,10 +84,11 @@ export default function AppointmentPage() {
                 >
                   <option value="">Select Department</option>
                   {departments.map((dept) => (
-                    <option key={dept} value={dept}>{dept}</option>
+                    <option key={dept} value={dept}>
+                      {dept}
+                    </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               </div>
               <div className="relative">
                 <select
@@ -70,10 +99,11 @@ export default function AppointmentPage() {
                 >
                   <option value="">Select Doctor</option>
                   {doctors.map((doctor) => (
-                    <option key={doctor} value={doctor}>{doctor}</option>
+                    <option key={doctor} value={doctor}>
+                      {doctor}
+                    </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               </div>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -85,7 +115,6 @@ export default function AppointmentPage() {
                   className="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
-                <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
               </div>
               <div className="relative">
                 <select
@@ -96,10 +125,11 @@ export default function AppointmentPage() {
                 >
                   <option value="">Select Time</option>
                   {times.map((time) => (
-                    <option key={time} value={time}>{time}</option>
+                    <option key={time} value={time}>
+                      {time}
+                    </option>
                   ))}
                 </select>
-                <Clock className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
               </div>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -137,20 +167,31 @@ export default function AppointmentPage() {
               <MessageSquare className="absolute right-3 top-3 text-gray-400 pointer-events-none" />
             </div>
           </div>
-          <motion.div 
-            className="px-6 py-4 bg-gray-50 border-t border-gray-200 flex justify-end"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <button
+
+          {/* Button section with Submit and Clear buttons */}
+          <div className="px-6 py-4 bg-gray-50 border-t border-gray-200 flex justify-between">
+            {/* Clear Button */}
+
+            {/* Book Appointment Button */}
+            <motion.button
               type="submit"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
             >
               Book Appointment
-            </button>
-          </motion.div>
+            </motion.button>
+            <motion.button
+              type="reset"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-2 bg-gray-200 text-gray-700 font-semibold rounded-md shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-colors duration-300"
+            >
+              Clear
+            </motion.button>
+          </div>
         </motion.form>
       </div>
     </motion.div>
-  )
+  );
 }
