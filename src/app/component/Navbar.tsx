@@ -91,10 +91,9 @@ export default function Navbar() {
                     </div>
                   </div>
                 </div>
-                {/* <NavLink href="/services">Services</NavLink> */}
                 <NavLink href="/doctors">Our Doctors</NavLink>
                 <NavLink href="/appointments">Appointments</NavLink>
-                <NavLink href="/contact">Contact</NavLink>
+                <NavLink href="/contact">Contact Us</NavLink>
               </div>
             </div>
           </div>
