@@ -92,7 +92,7 @@ export default function Navbar() {
                   </div>
                 </div>
                 <NavLink href="/doctors">Our Doctors</NavLink>
-                <NavLink href="/appointments">Appointments</NavLink>
+                <NavLink href="/appointment">Appointments</NavLink>
                 <NavLink href="/contact">Contact Us</NavLink>
               </div>
             </div>
