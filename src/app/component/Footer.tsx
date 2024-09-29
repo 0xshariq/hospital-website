@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Linkedin, Instagram, MessageCircle } from "lucide-react";
+import React from "react";
 
 const specialties = ["Dental", "Cardiology", "Internal Medicine"];
 
@@ -15,7 +16,7 @@ export default function Footer() {
   }, []);
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = "971XXXXXXXXX";
+    const phoneNumber = "971585855829 ";
     const message = encodeURIComponent(
       "Hello, I would like to connect with Extra Care Medical Center."
     );

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 // Type definitions
 type Doctor = {
@@ -129,12 +130,14 @@ export default function OurDoctorsPage() {
           onPageChange={handlePageChange}
         />
         <div className="flex flex-row justify-center items-center my-20">
+          <Button variant="ghost">
           <Link
             href="/doctors"
             className="text-blue-600 hover:text-blue-800 transition-colors duration-300"
           >
             View All
           </Link>
+          </Button>
         </div>
       </div>
     </div>
