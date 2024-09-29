@@ -133,15 +133,16 @@ export default function Footer() {
         </div>
       </footer>
 
-      {/* WhatsApp Floating Icon */}
+      {/* WhatsApp Floating Icon with Text */}
       <a
         href="https://wa.me/971585855829"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-4 right-4 bg-green-500 text-white rounded-full p-3 shadow-lg hover:bg-green-600 transition-colors duration-300"
+        className="fixed bottom-4 right-4 flex items-center bg-green-500 text-white rounded-full p-3 shadow-lg hover:bg-green-600 transition-colors duration-300"
         aria-label="Chat on WhatsApp"
       >
         <FontAwesomeIcon icon={faWhatsapp} className="w-8 h-8" />
+        <span className="ml-2 text-sm">Need Help? Chat With Us</span>
       </a>
     </>
   );
