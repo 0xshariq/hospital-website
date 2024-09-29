@@ -34,7 +34,7 @@ const images: ImageData[] = [
 ]
 
 export default function HospitalImageSlider() {
-  const [api, setApi] = useState<CarouselApi>()
+  const [api, setApi] = useState<CarouselApi | null>(null) // Allow api to be null initially
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
   const [autoplay, setAutoplay] = useState(true)
@@ -44,14 +44,20 @@ export default function HospitalImageSlider() {
     setCount(api.scrollSnapList().length)
     setCurrent(api.selectedScrollSnap())
 
-    api.on("select", () => {
+    const selectHandler = () => {
       setCurrent(api.selectedScrollSnap())
-    })
+    }
+
+    api.on("select", selectHandler)
+    
+    return () => {
+      api.off("select", selectHandler) // Clean up event listener on unmount
+    }
   }, [api])
 
   useEffect(() => {
-    if (!autoplay) return
-    const intervalId = setInterval(() => api?.scrollNext(), 5000)
+    if (!autoplay || !api) return // Ensure api is available
+    const intervalId = setInterval(() => api.scrollNext(), 5000)
     return () => clearInterval(intervalId)
   }, [api, autoplay])
 
@@ -68,6 +74,8 @@ export default function HospitalImageSlider() {
         opts={{
           loop: true,
         }}
+        role="region" // Accessibility role
+        aria-label="Hospital Image Slider" // Accessibility label
       >
         <CarouselContent>
           {images.map((image, index) => (
