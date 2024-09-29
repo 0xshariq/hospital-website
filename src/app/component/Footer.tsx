@@ -2,27 +2,19 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Linkedin, Instagram, MessageCircle } from "lucide-react";
+import { Facebook, Linkedin, Instagram } from "lucide-react";
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 const specialties = ["Dental", "Cardiology", "Internal Medicine"];
 
 export default function Footer() {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  const [isWhatsAppHovered, setIsWhatsAppHovered] = useState(false);
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
   }, []);
-
-  const handleWhatsAppClick = () => {
-    const phoneNumber = "971585855829 ";
-    const message = encodeURIComponent(
-      "Hello, I would like to connect with Extra Care Medical Center."
-    );
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    window.open(whatsappUrl, "_blank");
-  };
 
   return (
     <>
@@ -109,33 +101,25 @@ export default function Footer() {
                   <Linkedin className="w-6 h-6 mr-2" />
                   <span>LinkedIn</span>
                 </a>
+                <a
+                  href="https://wa.me/971585855829"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-gray-400 hover:text-green-500 transition-colors duration-300"
+                >
+                  <FontAwesomeIcon icon={faWhatsapp} className="w-6 h-6 mr-2" />
+                  <span>WhatsApp</span>
+                </a>
               </div>
             </div>
           </div>
-        <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-center items-center">
+          <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-center items-center">
             <p className="text-gray-400 text-sm text-center md:text-left">
               © {currentYear} Extra Care Medical Center. All Rights Reserved.
             </p>
           </div>
         </div>
       </footer>
-      <button
-        onClick={handleWhatsAppClick}
-        onMouseEnter={() => setIsWhatsAppHovered(true)}
-        onMouseLeave={() => setIsWhatsAppHovered(false)}
-        className={`fixed bottom-4 right-4 p-3 rounded-full text-white transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 ${
-          isWhatsAppHovered
-            ? "bg-green-600 shadow-lg transform translate-y-[-4px]"
-            : "bg-green-500 hover:bg-green-600"
-        }`}
-        aria-label="Connect on WhatsApp"
-      >
-        <MessageCircle
-          className={`w-6 h-6 transition-transform duration-300 ${
-            isWhatsAppHovered ? "transform rotate-12" : ""
-          }`}
-        />
-      </button>
     </>
   );
 }
