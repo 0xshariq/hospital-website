@@ -8,7 +8,7 @@ export default function Insurance() {
   const logos = [
     {
       name: "Oman Insurance",
-      src: "https://www.asta-uk.com/wp-content/uploads/2021/09/oman-insurance-logo.jpg",
+      src: "https://www.seekpng.com/png/small/768-7688461_family-protection-just-a-click-away-oman-insurance.png",
     },
     {
       name: "NAS",
