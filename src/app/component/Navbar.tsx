@@ -42,7 +42,7 @@ export default function Navbar() {
   }, [])
 
   const specialties = [
-    "Dental","Cardiology","Internal Medicine"
+    "Dental", "Cardiology", "Internal Medicine"
   ]
 
   return (
@@ -97,6 +97,14 @@ export default function Navbar() {
               </div>
             </div>
           </div>
+          <div className="hidden md:flex items-center">
+            <Link
+              href="/appointment"
+              className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300"
+            >
+              Book your Appointment
+            </Link>
+          </div>
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
@@ -142,6 +150,12 @@ export default function Navbar() {
             <MobileNavLink href="/doctors">Our Doctors</MobileNavLink>
             <MobileNavLink href="/appointments">Appointments</MobileNavLink>
             <MobileNavLink href="/contact">Contact</MobileNavLink>
+            <Link
+              href="/appointment"
+              className="block w-full text-center bg-blue-600 text-white hover:bg-blue-700 px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 mt-2"
+            >
+              Book your Appointment
+            </Link>
           </div>
         </div>
       )}
