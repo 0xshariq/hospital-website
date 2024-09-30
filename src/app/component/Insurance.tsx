@@ -42,6 +42,9 @@ export default function Insurance() {
   return (
     <div className="w-full bg-white py-8 px-4">
       <div className="max-w-6xl mx-auto">
+        <div className="flex justify-center items-center">
+            <h1 className="text-4xl font-bold text-blue-600 mb-8">Insurance</h1>
+        </div>
         <div
           className={`flex flex-wrap justify-center items-center mb-8 transition-opacity duration-700 ease-in-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
