@@ -1,7 +1,10 @@
-import { motion } from "framer-motion";
+"use client"
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Insurance() {
+  const [isVisible, setIsVisible] = useState(false);
+
   const logos = [
     {
       name: "Oman Insurance",
@@ -29,23 +32,26 @@ export default function Insurance() {
     },
   ];
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="w-full bg-white py-8 px-4">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-wrap justify-center items-center mb-8"
+        <div
+          className={`flex flex-wrap justify-center items-center mb-8 transition-opacity duration-700 ease-in-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
         >
           {logos.map((logo, index) => (
-            <motion.div
+            <div
               key={logo.name}
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className="w-1/2 sm:w-1/3 md:w-1/4 p-4"
+              className="w-1/2 sm:w-1/3 md:w-1/4 p-4 transform transition-transform duration-300 ease-in-out hover:scale-105"
+              style={{ transitionDelay: `${index * 0.1}s` }}
             >
               <div className="relative w-full h-20">
                 <Image
@@ -56,17 +62,16 @@ export default function Insurance() {
                   unoptimized={true}
                 />
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
-        <motion.h2
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center text-xl font-semibold text-gray-800"
+        </div>
+        <h2
+          className={`text-center text-xl font-semibold text-gray-800 transition-opacity duration-700 ease-in-out delay-300 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
         >
           YOUR BEST DENTISTS IN ABU DHABI
-        </motion.h2>
+        </h2>
       </div>
     </div>
   );
