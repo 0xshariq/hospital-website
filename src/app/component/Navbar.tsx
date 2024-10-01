@@ -110,7 +110,6 @@ export default function Navbar() {
                   </div>
                 </div>
                 <NavLink href="/doctors">Our Doctors</NavLink>
-                <NavLink href="/appointment">Appointments</NavLink>
                 <NavLink href="/contact">Contact Us</NavLink>
               </div>
             </div>
@@ -182,7 +181,6 @@ export default function Navbar() {
                 ))}
               </div>
             </div>
-            <MobileNavLink href="/services">Services</MobileNavLink>
             <MobileNavLink href="/doctors">Our Doctors</MobileNavLink>
             <MobileNavLink href="/contact">Contact</MobileNavLink>
             <Link
