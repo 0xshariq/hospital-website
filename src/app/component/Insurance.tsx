@@ -24,11 +24,11 @@ export default function Insurance() {
     },
     {
       name: "Daman Enhanced",
-      src: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/df/56/47/df5647dc-144f-e8b5-f55d-6fac44c7d643/AppIcon-0-0-1x_U007emarketing-0-2-0-85-220.png/1200x600wa.png",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp8Hwe1CqSTEP1Y4E0DomlWbT3ETv_n9cr3g&s",
     },
     {
       name: "MetLife",
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdFyYVY6-eqpYeFjboE-xR7dTS1Sft8aRlnA&s",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSistaw8euw5GoN3_ZPA00vfOh6eCnEWMbWw&s",
     },
   ];
 
@@ -40,28 +40,35 @@ export default function Insurance() {
   }, []);
 
   return (
-    <div className="w-full bg-white py-8 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex justify-center items-center">
-            <h1 className="text-4xl font-bold text-blue-600 mb-8">Insurance</h1>
+    <div className="w-full bg-white py-12 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex justify-center items-center mb-12">
+          <h1 className="text-5xl font-bold text-blue-600 transition-all duration-700 ease-in-out transform hover:scale-105">
+            Insurance
+          </h1>
         </div>
         <div
-          className={`flex flex-wrap justify-center items-center mb-8 transition-opacity duration-700 ease-in-out ${
+          className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-8 mb-12 transition-all duration-1000 ease-in-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
           {logos.map((logo, index) => (
             <div
               key={logo.name}
-              className="w-1/2 sm:w-1/3 md:w-1/4 p-4 transform transition-transform duration-300 ease-in-out hover:scale-105"
-              style={{ transitionDelay: `${index * 0.1}s` }}
+              className="flex justify-center items-center p-4 bg-white rounded-lg shadow-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-xl"
+              style={{ 
+                transitionDelay: `${index * 150}ms`,
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(20px)'
+              }}
             >
-              <div className="relative w-full h-20">
+              <div className="relative w-full h-32 sm:h-40 md:h-48">
                 <Image
                   src={logo.src}
                   alt={`${logo.name} logo`}
                   layout="fill"
                   objectFit="contain"
+                  className="transition-all duration-300 ease-in-out filter hover:brightness-110"
                   unoptimized={true}
                 />
               </div>
@@ -69,11 +76,11 @@ export default function Insurance() {
           ))}
         </div>
         <h2
-          className={`text-center text-xl font-semibold text-gray-800 transition-opacity duration-700 ease-in-out delay-300 ${
-            isVisible ? "opacity-100" : "opacity-0"
+          className={`text-center text-2xl font-semibold text-gray-800 transition-all duration-700 ease-in-out delay-500 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          YOUR BEST DENTISTS IN ABU DHABI
+          ALL INSURANCE ACCEPTED HERE
         </h2>
       </div>
     </div>

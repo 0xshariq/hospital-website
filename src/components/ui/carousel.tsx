@@ -137,7 +137,7 @@ const Carousel = React.forwardRef<
         <div
           ref={ref}
           onKeyDownCapture={handleKeyDown}
-          className={cn("relative", className)}
+          className={cn("relative", className || "")} // Fix applied here
           role="region"
           aria-roledescription="carousel"
           {...props}
@@ -163,7 +163,7 @@ const CarouselContent = React.forwardRef<
         className={cn(
           "flex",
           orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
-          className
+          className || "" // Fix applied here
         )}
         {...props}
       />
@@ -186,7 +186,7 @@ const CarouselItem = React.forwardRef<
       className={cn(
         "min-w-0 shrink-0 grow-0 basis-full",
         orientation === "horizontal" ? "pl-4" : "pt-4",
-        className
+        className || "" // Fix applied here
       )}
       {...props}
     />
@@ -210,7 +210,7 @@ const CarouselPrevious = React.forwardRef<
         orientation === "horizontal"
           ? "-left-12 top-1/2 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
-        className
+        className || "" // Fix applied here
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
@@ -239,7 +239,7 @@ const CarouselNext = React.forwardRef<
         orientation === "horizontal"
           ? "-right-12 top-1/2 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
-        className
+        className || "" // Fix applied here
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
