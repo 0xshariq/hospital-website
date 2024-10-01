@@ -138,11 +138,14 @@ export default function Footer() {
         href="https://wa.me/971585855829"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-4 right-4 flex items-center bg-green-500 text-white rounded-full p-3 shadow-lg hover:bg-green-600 transition-colors duration-300"
+        className="fixed bottom-4 right-4 flex items-center bg-green-500 text-white rounded-full p-3 shadow-lg hover:bg-green-600 transition-all duration-300 ease-in-out transform hover:scale-105"
         aria-label="Chat on WhatsApp"
       >
-        <FontAwesomeIcon icon={faWhatsapp} className="w-8 h-8" />
-        <span className="ml-2 text-sm">Need Help? Chat With Us</span>
+        <FontAwesomeIcon icon={faWhatsapp} className="w-8 h-8 animate-pulse" />
+        <span className="ml-2 text-sm whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out"
+              style={{maxWidth: "200px", textOverflow: "ellipsis"}}>
+          Connect Us with WhatsApp
+        </span>
       </a>
     </>
   );
