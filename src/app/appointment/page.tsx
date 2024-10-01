@@ -12,16 +12,10 @@ export default function AppointmentPage() {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
-  const departments = [
-    "Cardiology",
-    "Dental",
-    "Internal Medicine"
-  ];
+  const departments = ["Dental", "Cardiology", "Internal Medicine"];
   const doctors = [
-    "Dr. John Doe",
-    "Dr. Jane Smith",
-    "Dr. Mike Johnson",
-    "Dr. Emily Brown",
+    "Dr. Abeer Khan",
+    "Dr. Yaseen"
   ];
   const times = [
     "09:00 AM",
@@ -34,21 +28,18 @@ export default function AppointmentPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic
+    // Handle form submission here
     console.log("Appointment submitted");
   };
 
   const handleClear = () => {
-    // Reset all form fields
-    setSelectedDepartment("");
-    setSelectedDoctor("");
-    setSelectedDate("");
-    setSelectedTime("");
     setName("");
     setPhone("");
+    setSelectedDate("");
+    setSelectedDoctor("");
+    setSelectedTime("");
     setMessage("");
   };
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -89,6 +80,7 @@ export default function AppointmentPage() {
                     </option>
                   ))}
                 </select>
+                {/* <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" /> */}
               </div>
               <div className="relative">
                 <select
@@ -104,6 +96,7 @@ export default function AppointmentPage() {
                     </option>
                   ))}
                 </select>
+                {/* <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" /> */}
               </div>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -115,6 +108,7 @@ export default function AppointmentPage() {
                   className="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
+                {/* <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" /> */}
               </div>
               <div className="relative">
                 <select
@@ -130,6 +124,7 @@ export default function AppointmentPage() {
                     </option>
                   ))}
                 </select>
+                {/* <Clock className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" /> */}
               </div>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -142,7 +137,7 @@ export default function AppointmentPage() {
                   className="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
-                <User className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
+                <User className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               </div>
               <div className="relative">
                 <input
@@ -153,7 +148,7 @@ export default function AppointmentPage() {
                   className="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
-                <Phone className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
+                <Phone className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               </div>
             </div>
             <div className="relative">
@@ -164,30 +159,25 @@ export default function AppointmentPage() {
                 rows={4}
                 className="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               ></textarea>
-              <MessageSquare className="absolute right-3 top-3 text-gray-400 pointer-events-none" />
+              <MessageSquare className="absolute right-3 top-3 text-gray-400" />
             </div>
           </div>
-
-          {/* Button section with Submit and Clear buttons */}
           <div className="px-6 py-4 bg-gray-50 border-t border-gray-200 flex justify-between">
-            {/* Clear Button */}
-
-            {/* Book Appointment Button */}
-            <motion.button
-              type="submit"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
-            >
-              Book Appointment
-            </motion.button>
             <motion.button
               type="reset"
+              className="px-4 py-2 bg-gray-200 text-gray-700 font-semibold rounded-md shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 bg-gray-200 text-gray-700 font-semibold rounded-md shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-colors duration-300"
             >
               Clear
+            </motion.button>
+            <motion.button
+              type="submit"
+              className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Book Appointment
             </motion.button>
           </div>
         </motion.form>

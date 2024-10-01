@@ -74,6 +74,9 @@ export default function Insurance() {
               </div>
             </div>
           ))}
+          <div>
+            <p>And Many More....</p>
+          </div>
         </div>
         <h2
           className={`text-center text-2xl font-semibold text-gray-800 transition-all duration-700 ease-in-out delay-500 ${

@@ -184,7 +184,6 @@ export default function Navbar() {
             </div>
             <MobileNavLink href="/services">Services</MobileNavLink>
             <MobileNavLink href="/doctors">Our Doctors</MobileNavLink>
-            <MobileNavLink href="/appointments">Appointments</MobileNavLink>
             <MobileNavLink href="/contact">Contact</MobileNavLink>
             <Link
               href="/appointment"
