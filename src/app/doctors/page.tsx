@@ -42,20 +42,20 @@ const doctors: Doctor[] = [
     expertise: ["Root Canal Treatment", "Cosmetic Dentistry", "Dental Implants", "Pediatric Dentistry"]
   },
   {
-    "id": 2,
-    "name": "Dr. Mohammad Rafiq Yassin",
-    "specialization": "Specialist Cardiologist & Internal Medicine",
-    "hospital": "Extra Care Medical Center",
-    "location": "Abu Dhabi",
-    "imageUrl": "/placeholder.svg?height=300&width=300",
-    "profileUrl": "/doctors/mohammad-rafiq-yassin",
-    "experience": 25,
-    "nationality": "Syrian",
-    "languages": [
+    id: 2,
+    name: "Dr. Mohammad Rafiq Yassin",
+    specialization: "Specialist Cardiologist & Internal Medicine",
+    hospital: "Extra Care Medical Center",
+    location: "Abu Dhabi",
+    imageUrl: "/placeholder.svg?height=300&width=300",
+    profileUrl: "/doctors/mohammad-rafiq-yassin",
+    experience: 25,
+    nationality: "Syrian",
+    languages: [
         "English",
         "Arabic"
     ],
-    "qualifications": [
+    qualifications: [
         "M.B.B.S",
         "MRCP (UK)",
         "FRCP (Glasgow)",
@@ -63,9 +63,9 @@ const doctors: Doctor[] = [
         "Aviation Medicine (Melbourne, Australia)",
         "Cardiology & Internal Medicine (Bristol, UK)"
     ],
-    "education": "Dr. Mohammad Rafiq Yassin graduated from Damascus University Faculty of Medicine in 2000. He obtained his MRCP (UK) in 2007 and was elected as a Fellow of the Royal College of Physicians and Surgeons of Glasgow in 2017.",
-    "workExperience": "Dr. Yassin has worked as a Registrar in Cardiology & Internal Medicine at Bristol Royal Infirmary, UK. He has been the Chief Medical Officer at GAMO in Abu Dhabi, Etihad Airways, ADAT (Mubadala, Abu Dhabi), and Etihad Engineering.",
-    "expertise": [
+    education: "Dr. Mohammad Rafiq Yassin graduated from Damascus University Faculty of Medicine in 2000. He obtained his MRCP (UK) in 2007 and was elected as a Fellow of the Royal College of Physicians and Surgeons of Glasgow in 2017.",
+    workExperience: "Dr. Yassin has worked as a Registrar in Cardiology & Internal Medicine at Bristol Royal Infirmary, UK. He has been the Chief Medical Officer at GAMO in Abu Dhabi, Etihad Airways, ADAT (Mubadala, Abu Dhabi), and Etihad Engineering.",
+    expertise: [
         "Interventional Cardiology",
         "Echocardiography",
         "Hypertension Management",
