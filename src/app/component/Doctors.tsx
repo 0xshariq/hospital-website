@@ -77,7 +77,7 @@ export default function OurDoctorsPage() {
               href="/doctors"
               className="text-blue-600 hover:text-blue-800 transition-colors duration-300"
             >
-              View All
+              More Info
             </Link>
           </Button>
         </div>
