@@ -109,7 +109,7 @@ export default function Navbar() {
                     </div>
                   </div>
                 </div>
-                <NavLink href="/doctors">Our Doctors</NavLink>
+                <NavLink href="/doctors">Doctors</NavLink>
                 <NavLink href="/contact">Contact Us</NavLink>
               </div>
             </div>
@@ -152,7 +152,7 @@ export default function Navbar() {
             <div className="relative">
               <button
                 onClick={toggleSpecialties}
-                className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium w-full text-left flex justify-between items-center"
+                className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium w-full text-left flex justify-between items-center"
               >
                 Specialties
                 <ChevronDown
