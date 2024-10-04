@@ -1,5 +1,6 @@
 "use client"
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
 import { Calendar, User, Phone, MessageSquare } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,15 +15,14 @@ export default function AppointmentForm() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
+  const [availableDoctors, setAvailableDoctors] = useState<string[]>([]);
 
   const departments = ["Cardiology", "Dental", "Internal Medicine"];
-  const doctors = [
-    "Dr. Abeer Khan",
-    "Dr. Yaseen",
-    "Dr. Smith",
-    "Dr. Johnson",
-    "Dr. Williams"
-  ];
+  const doctorsByDepartment = {
+    cardiology: ["Dr. Mohammad Rafiq Yassin"],
+    dental: ["Dr. Abeer Khan"],
+    "internal medicine": ["Dr. Mohammad Rafiq Yassin"]
+  };
   const times = [
     "09:00 AM",
     "10:00 AM",
@@ -32,10 +32,29 @@ export default function AppointmentForm() {
     "04:00 PM",
   ];
 
+  useEffect(() => {
+    if (department) {
+      setAvailableDoctors(doctorsByDepartment[department as keyof typeof doctorsByDepartment] || []);
+      setDoctor(''); // Reset selected doctor when department changes
+    } else {
+      setAvailableDoctors([]);
+    }
+  }, [department]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
     console.log({ department, doctor, date, time, name, phone, message });
+  }
+
+  const handleClear = () => {
+    setDepartment('');
+    setDoctor('');
+    setDate('');
+    setTime('');
+    setName('');
+    setPhone('');
+    setMessage('');
   }
 
   return (
@@ -63,11 +82,11 @@ export default function AppointmentForm() {
                 <div className="space-y-2">
                   <label htmlFor="doctor" className="text-sm font-medium text-gray-700">Doctor</label>
                   <Select value={doctor} onValueChange={setDoctor}>
-                    <SelectTrigger id="doctor">
+                    <SelectTrigger id="doctor" disabled={!department}>
                       <SelectValue placeholder="Select Doctor" />
                     </SelectTrigger>
                     <SelectContent>
-                      {doctors.map((doc) => (
+                      {availableDoctors.map((doc) => (
                         <SelectItem key={doc} value={doc.toLowerCase().replace(/\s+/g, '-')}>{doc}</SelectItem>
                       ))}
                     </SelectContent>
@@ -109,7 +128,7 @@ export default function AppointmentForm() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="pl-10"
-                    placeholder=""
+                    placeholder="Enter your name"
                   />
                   <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                 </div>
@@ -123,7 +142,7 @@ export default function AppointmentForm() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     className="pl-10"
-                    placeholder=""
+                    placeholder="Enter your phone number"
                   />
                   <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                 </div>
@@ -143,15 +162,7 @@ export default function AppointmentForm() {
                 </div>
               </div>
               <div className="flex justify-end space-x-4">
-                <Button variant="outline" type="button" onClick={() => {
-                  setDepartment('');
-                  setDoctor('');
-                  setDate('');
-                  setTime('');
-                  setName('');
-                  setPhone('');
-                  setMessage('');
-                }}>
+                <Button variant="outline" type="button" onClick={handleClear}>
                   Clear
                 </Button>
                 <Button type="submit">Book Appointment</Button>
