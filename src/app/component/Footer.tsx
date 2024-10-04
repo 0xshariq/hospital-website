@@ -27,7 +27,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="bg-gray-900 text-white">
+      <footer className="bg-blue-100 text-blue-900"> {/* Updated background and text colors */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
           <div className="space-y-4">
@@ -37,7 +37,7 @@ export default function Footer() {
               width={150}
               height={150}
             />
-            <p className="text-gray-400 text-sm">
+            <p className="text-blue-700 text-sm"> {/* Updated text color */}
               Committed to providing advanced medical care with a patient-first
               approach. Dedicated to health, wellness, and excellence.
             </p>
@@ -53,8 +53,7 @@ export default function Footer() {
                     href={`/specialties/${specialty
                       .toLowerCase()
                       .replace(/\s+/g, "-")}`}
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                  >
+                    className="text-blue-700 hover:text-blue-900 transition-colors duration-300"> {/* Updated link colors */}
                     {specialty}
                   </Link>
                 </li>
@@ -66,13 +65,12 @@ export default function Footer() {
           <div className="space-y-4">
             <h2 className="text-lg font-semibold">Quick Links</h2>
             <ul className="space-y-2">
-              {["About Us", "Our Doctors", "Privacy Policy", "Terms & Conditions"].map(
+              {["About Us", "Doctors", "Privacy Policy", "Terms & Conditions"].map(
                 (link, index) => (
                   <li key={index}>
                     <Link
                       href={`/${link.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-gray-400 hover:text-white transition-colors duration-300"
-                    >
+                      className="text-blue-700 hover:text-blue-900 transition-colors duration-300"> {/* Updated link colors */}
                       {link}
                     </Link>
                   </li>
@@ -86,29 +84,26 @@ export default function Footer() {
             <h2 className="text-lg font-semibold">Connect With Us</h2>
             <div className="flex flex-col space-y-4">
               <a
-                href="https://www.facebook.com/ExtraCare"
+                href="https://www.facebook.com/people/Extra-Care-Medical-Center/61551124427651/?mibextid=qi2Omg&rdid=O5vrYZVcPf6SZs0R&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FhzdkPWRCAXBqRh4h%2F%3Fmibextid%3Dqi2Omg"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-gray-400 hover:text-blue-400 transition-colors duration-300"
-              >
+                className="flex items-center text-blue-700 hover:text-blue-900 transition-colors duration-300"> {/* Updated link colors */}
                 <FontAwesomeIcon icon={faFacebookF} className="w-6 h-6 mr-2" />
                 <span>Facebook</span>
               </a>
               <a
-                href="https://www.instagram.com/extracare"
+                href="https://www.instagram.com/extracareuae"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-gray-400 hover:text-pink-400 transition-colors duration-300"
-              >
+                className="flex items-center text-blue-700 hover:text-blue-900 transition-colors duration-300"> {/* Updated link colors */}
                 <FontAwesomeIcon icon={faInstagram} className="w-6 h-6 mr-2" />
                 <span>Instagram</span>
               </a>
               <a
-                href="https://www.linkedin.com/company/extracare"
+                href="https://www.linkedin.com/company/extracareuae"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-gray-400 hover:text-blue-600 transition-colors duration-300"
-              >
+                className="flex items-center text-blue-700 hover:text-blue-900 transition-colors duration-300"> {/* Updated link colors */}
                 <FontAwesomeIcon icon={faLinkedinIn} className="w-6 h-6 mr-2" />
                 <span>LinkedIn</span>
               </a>
@@ -116,8 +111,7 @@ export default function Footer() {
                 href="https://twitter.com/ExtraCareUAE"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-gray-400 hover:text-blue-500 transition-colors duration-300"
-              >
+                className="flex items-center text-blue-700 hover:text-blue-900 transition-colors duration-300"> {/* Updated link colors */}
                 <FontAwesomeIcon icon={faXTwitter} className="w-6 h-6 mr-2" />
                 <span>X</span>
               </a>
@@ -126,8 +120,8 @@ export default function Footer() {
         </div>
 
         {/* Footer Bottom Section */}
-        <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-          <p className="text-gray-400 text-sm">
+        <div className="mt-8 pt-8 border-t border-blue-300 text-center"> {/* Updated border and text colors */}
+          <p className="text-blue-700 text-sm">
             © {currentYear} Extra Care Medical Center. All Rights Reserved.
           </p>
         </div>
@@ -143,7 +137,7 @@ export default function Footer() {
       >
         <FontAwesomeIcon icon={faWhatsapp} className="w-8 h-8 animate-pulse" />
         <span className="ml-2 text-sm whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out"
-              style={{maxWidth: "200px", textOverflow: "ellipsis"}}>
+              style={{ maxWidth: "200px", textOverflow: "ellipsis" }}>
           Connect Us with WhatsApp
         </span>
       </a>
