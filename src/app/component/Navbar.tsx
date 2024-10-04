@@ -48,12 +48,12 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-10 bg-white transition-all duration-300 mt-0 ${
+      className={`sticky top-0 z-10 bg-gradient-to-r from-blue-50 to-cyan-50 transition-all duration-300 mt-0 ${
         scrolled ? "shadow-md" : ""
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <Link href="/" className="flex items-center">
@@ -77,7 +77,7 @@ export default function Navbar() {
                 >
                   <button
                     onClick={toggleSpecialties}
-                    className="text-gray-600 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium transition-colors duration-300 flex items-center"
+                    className="text-gray-700 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium transition-colors duration-300 flex items-center"
                   >
                     Specialties
                     <ChevronDown
@@ -101,7 +101,7 @@ export default function Navbar() {
                           href={`/specialties/${specialty
                             .toLowerCase()
                             .replace(/\s+/g, "-")}`}
-                          className="text-gray-600 hover:text-blue-600 hover:bg-gray-100 px-3 py-2 rounded-md text-sm transition-colors duration-200 whitespace-nowrap"
+                          className="text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-md text-sm transition-colors duration-200 whitespace-nowrap"
                         >
                           {specialty}
                         </Link>
@@ -125,7 +125,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-300"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-blue-600 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-300"
               aria-expanded={isMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
@@ -152,7 +152,7 @@ export default function Navbar() {
             <div className="relative">
               <button
                 onClick={toggleSpecialties}
-                className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium w-full text-left flex justify-between items-center"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium w-full text-left flex justify-between items-center"
               >
                 Specialties
                 <ChevronDown
@@ -174,7 +174,7 @@ export default function Navbar() {
                     href={`/specialties/${specialty
                       .toLowerCase()
                       .replace(/\s+/g, "-")}`}
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200"
                   >
                     {specialty}
                   </Link>
@@ -206,7 +206,7 @@ function NavLink({
   return (
     <Link
       href={href}
-      className="text-gray-600 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium transition-colors duration-300"
+      className="text-gray-700 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium transition-colors duration-300"
     >
       {children}
     </Link>
@@ -223,7 +223,7 @@ function MobileNavLink({
   return (
     <Link
       href={href}
-      className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300"
+      className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300"
     >
       {children}
     </Link>

@@ -75,8 +75,7 @@ const doctors: Doctor[] = [
         "Occupational Health Management",
         "Aviation Medicine & Medical Kits"
     ]
-}
-
+  }
 ]
 
 export default function DoctorsPage() {
@@ -93,13 +92,13 @@ export default function DoctorsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200">
-      <header className="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-6">
+    <div className="min-h-screen bg-gradient-to-b from-teal-50 to-cyan-100">
+      <header className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-2 tracking-tight">Our Doctors</h1>
+          <h1 className="text-5xl font-bold mb-3 tracking-tight">Our Doctors</h1>
           <nav className="text-sm breadcrumbs">
             <ul className="flex items-center space-x-2">
-              <li><Link href="/" className="text-blue-400 hover:text-blue-300 transition-colors duration-300">Home</Link></li>
+              <li><Link href="/" className="text-teal-200 hover:text-white transition-colors duration-300">Home</Link></li>
               <li><ChevronRight className="w-4 h-4" /></li>
               <li>Doctors</li>
             </ul>
@@ -107,12 +106,12 @@ export default function DoctorsPage() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className={`grid ${isSmallScreen ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'} gap-8`}
+          className={`grid ${isSmallScreen ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'} gap-10`}
         >
           {doctors.map((doctor) => (
             <motion.div
@@ -120,30 +119,30 @@ export default function DoctorsPage() {
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Card className="overflow-hidden transition-shadow duration-300 ease-in-out hover:shadow-xl">
-                <CardContent className="p-0">
-                  <div className="relative overflow-hidden">
+              <Card className="flex flex-col h-full overflow-hidden transition-shadow duration-300 ease-in-out hover:shadow-2xl bg-white rounded-2xl">
+                <CardContent className="p-0 flex-grow">
+                  <div className="relative h-72 overflow-hidden">
                     <Image
                       src={doctor.imageUrl}
                       alt={doctor.name}
                       width={300}
                       height={300}
-                      className="w-full h-64 object-cover object-center transition-transform duration-300 ease-in-out hover:scale-110"
+                      className="w-full h-full object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 transition-opacity duration-300 hover:opacity-70" />
                   </div>
                   <div className="p-6">
-                    <h2 className="text-2xl font-semibold text-gray-800 mb-2 transition-colors duration-300 hover:text-blue-600">{doctor.name}</h2>
-                    <p className="text-blue-600 mb-2">{doctor.specialization}</p>
+                    <h2 className="text-2xl font-semibold text-gray-800 mb-2 transition-colors duration-300 hover:text-teal-600">{doctor.name}</h2>
+                    <p className="text-teal-600 mb-2 font-medium">{doctor.specialization}</p>
                     <p className="text-gray-600 mb-4">{doctor.hospital}, {doctor.location}</p>
                     <p className="text-gray-700"><strong>Experience:</strong> {doctor.experience} years</p>
                     <p className="text-gray-700"><strong>Languages:</strong> {doctor.languages.join(", ")}</p>
                   </div>
                 </CardContent>
-                <CardFooter>
+                <CardFooter className="bg-gray-50 mt-auto">
                   <Button 
                     onClick={() => setSelectedDoctor(doctor)} 
-                    className="w-full transition-colors duration-300 ease-in-out hover:bg-blue-700"
+                    className="w-full bg-teal-600 hover:bg-teal-700 text-white transition-colors duration-300 ease-in-out"
                   >
                     View Profile
                   </Button>
@@ -160,7 +159,7 @@ export default function DoctorsPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center p-4 backdrop-blur-sm"
+            className="fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center p-4 backdrop-blur-sm"
             onClick={() => setSelectedDoctor(null)}
           >
             <motion.div 
@@ -168,57 +167,57 @@ export default function DoctorsPage() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 15 }}
-              className={`relative ${isSmallScreen ? 'w-full' : 'w-11/12 max-w-4xl'} bg-white rounded-lg shadow-2xl`}
+              className={`relative ${isSmallScreen ? 'w-full' : 'w-11/12 max-w-4xl'} bg-white rounded-2xl shadow-2xl`}
               onClick={e => e.stopPropagation()}
             >
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute top-4 right-4 z-10 transition-colors duration-300 hover:bg-gray-200"
+                className="absolute top-4 right-4 z-10 transition-colors duration-300 hover:bg-gray-200 text-gray-600"
                 onClick={() => setSelectedDoctor(null)}
               >
-                <X className="h-4 w-4" />
+                <X className="h-6 w-6" />
                 <span className="sr-only">Close</span>
               </Button>
-              <ScrollArea className={`p-6 ${isSmallScreen ? 'h-[calc(100vh-2rem)]' : 'max-h-[calc(100vh-4rem)]'}`}>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{selectedDoctor.name}</h3>
-                <div className={`grid ${isSmallScreen ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'} gap-6`}>
+              <ScrollArea className={`p-8 ${isSmallScreen ? 'h-[calc(100vh-2rem)]' : 'max-h-[calc(100vh-4rem)]'}`}>
+                <h3 className="text-3xl font-bold text-gray-900 mb-6">{selectedDoctor.name}</h3>
+                <div className={`grid ${isSmallScreen ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'} gap-8`}>
                   <div>
-                    <div className="relative overflow-hidden rounded-lg mb-4">
+                    <div className="relative overflow-hidden rounded-xl mb-6">
                       <Image
                         src={selectedDoctor.imageUrl}
                         alt={selectedDoctor.name}
                         width={300}
                         height={300}
-                        className="w-full h-64 object-cover object-center transition-transform duration-300 ease-in-out hover:scale-110"
+                        className="w-full h-80 object-cover object-center"
                       />
                     </div>
-                    <div className="space-y-2">
-                      <p className="text-gray-700"><strong>Experience:</strong> {selectedDoctor.experience} years</p>
-                      <p className="text-gray-700"><strong>Nationality:</strong> {selectedDoctor.nationality}</p>
-                      <p className="text-gray-700"><strong>Languages:</strong> {selectedDoctor.languages.join(", ")}</p>
-                      <p className="text-gray-700"><strong>Qualifications:</strong> {selectedDoctor.qualifications.join(", ")}</p>
+                    <div className="space-y-3 bg-gray-50 p-6 rounded-xl">
+                      <p className="text-gray-700"><strong className="text-teal-600">Experience:</strong> {selectedDoctor.experience} years</p>
+                      <p className="text-gray-700"><strong className="text-teal-600">Nationality:</strong> {selectedDoctor.nationality}</p>
+                      <p className="text-gray-700"><strong className="text-teal-600">Languages:</strong> {selectedDoctor.languages.join(", ")}</p>
+                      <p className="text-gray-700"><strong className="text-teal-600">Qualifications:</strong> {selectedDoctor.qualifications.join(", ")}</p>
                     </div>
                   </div>
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2 }}
                     >
-                      <h4 className="text-lg font-semibold mb-2">Biography</h4>
-                      <p className="text-gray-700">{selectedDoctor.education}</p>
-                      <p className="text-gray-700 mt-2">{selectedDoctor.workExperience}</p>
+                      <h4 className="text-xl font-semibold mb-3 text-teal-600">Biography</h4>
+                      <p className="text-gray-700 leading-relaxed">{selectedDoctor.education}</p>
+                      <p className="text-gray-700 mt-3 leading-relaxed">{selectedDoctor.workExperience}</p>
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4 }}
                     >
-                      <h4 className="text-lg font-semibold mb-2">Areas of Expertise</h4>
-                      <ul className="list-disc list-inside text-gray-700">
+                      <h4 className="text-xl font-semibold mb-3 text-teal-600">Areas of Expertise</h4>
+                      <ul className="list-disc list-inside text-gray-700 space-y-2">
                         {selectedDoctor.expertise.map((item, index) => (
-                          <li key={index} className="transition-colors duration-300 hover:text-blue-600">{item}</li>
+                          <li key={index} className="transition-colors duration-300 hover:text-teal-600">{item}</li>
                         ))}
                       </ul>
                     </motion.div>
