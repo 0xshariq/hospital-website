@@ -62,13 +62,15 @@ export default function AppointmentForm() {
       <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
         <div className="md:flex">
           <div className="p-8 w-full">
-            <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold mb-1">Healthcare</div>
+            <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold mb-1">Extra Care Medical Center</div>
             <h1 className="text-2xl font-bold text-gray-900 mb-6">Book Your Appointment</h1>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit}  onReset={handleClear} className="space-y-6">
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="space-y-2">
-                  <label htmlFor="department" className="text-sm font-medium text-gray-700">Department</label>
-                  <Select value={department} onValueChange={setDepartment}>
+                  <label htmlFor="department" className="text-sm font-medium text-gray-700">
+                    Department <span className="text-red-500">*</span>
+                  </label>
+                  <Select value={department} onValueChange={setDepartment} required>
                     <SelectTrigger id="department">
                       <SelectValue placeholder="Select Department" />
                     </SelectTrigger>
@@ -80,8 +82,10 @@ export default function AppointmentForm() {
                   </Select>
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="doctor" className="text-sm font-medium text-gray-700">Doctor</label>
-                  <Select value={doctor} onValueChange={setDoctor}>
+                  <label htmlFor="doctor" className="text-sm font-medium text-gray-700">
+                    Doctor <span className="text-red-500">*</span>
+                  </label>
+                  <Select value={doctor} onValueChange={setDoctor} required>
                     <SelectTrigger id="doctor" disabled={!department}>
                       <SelectValue placeholder="Select Doctor" />
                     </SelectTrigger>
@@ -93,7 +97,9 @@ export default function AppointmentForm() {
                   </Select>
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="date" className="text-sm font-medium text-gray-700">Date</label>
+                  <label htmlFor="date" className="text-sm font-medium text-gray-700">
+                    Date <span className="text-red-500">*</span>
+                  </label>
                   <div className="relative">
                     <Input
                       id="date"
@@ -101,13 +107,16 @@ export default function AppointmentForm() {
                       value={date}
                       onChange={(e) => setDate(e.target.value)}
                       className="pl-10"
+                      required
                     />
                     <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="time" className="text-sm font-medium text-gray-700">Time</label>
-                  <Select value={time} onValueChange={setTime}>
+                  <label htmlFor="time" className="text-sm font-medium text-gray-700">
+                    Time <span className="text-red-500">*</span>
+                  </label>
+                  <Select value={time} onValueChange={setTime} required>
                     <SelectTrigger id="time">
                       <SelectValue placeholder="Select Time" />
                     </SelectTrigger>
@@ -120,7 +129,9 @@ export default function AppointmentForm() {
                 </div>
               </div>
               <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-medium text-gray-700">Your Name</label>
+                <label htmlFor="name" className="text-sm font-medium text-gray-700">
+                  Your Name <span className="text-red-500">*</span>
+                </label>
                 <div className="relative">
                   <Input
                     id="name"
@@ -129,12 +140,15 @@ export default function AppointmentForm() {
                     onChange={(e) => setName(e.target.value)}
                     className="pl-10"
                     placeholder="Enter your name"
+                    required
                   />
                   <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                 </div>
               </div>
               <div className="space-y-2">
-                <label htmlFor="phone" className="text-sm font-medium text-gray-700">Phone Number</label>
+                <label htmlFor="phone" className="text-sm font-medium text-gray-700">
+                  Phone Number <span className="text-red-500">*</span>
+                </label>
                 <div className="relative">
                   <Input
                     id="phone"
@@ -143,6 +157,7 @@ export default function AppointmentForm() {
                     onChange={(e) => setPhone(e.target.value)}
                     className="pl-10"
                     placeholder="Enter your phone number"
+                    required
                   />
                   <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                 </div>
@@ -162,7 +177,7 @@ export default function AppointmentForm() {
                 </div>
               </div>
               <div className="flex justify-end space-x-4">
-                <Button variant="outline" type="button" onClick={handleClear}>
+                <Button variant="outline" type="reset">
                   Clear
                 </Button>
                 <Button type="submit">Book Appointment</Button>
