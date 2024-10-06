@@ -14,7 +14,6 @@ type Doctor = {
   imageUrl: string;
 };
 
-// Sample data
 const doctors: Doctor[] = [
   {
     id: "1",
@@ -22,15 +21,15 @@ const doctors: Doctor[] = [
     specialization: "Specialist Dentist",
     hospital: "Extra Care Medical Center",
     location: "Abu Dhabi",
-    imageUrl: "/placeholder.svg?height=300&width=300",
+    imageUrl: "/assets/dr-abeer-khan.jpeg",
   },
   {
     id: "2",
-    name: "Dr. Mohammad Rafiq Yassin",
+    name: "Dr. Mohammed Rafiq Yassin",
     specialization: "Specialist Cardiologist & Internal Medicine",
     hospital: "Extra Care Medical Center",
     location: "Abu Dhabi",
-    imageUrl: "/placeholder.svg?height=300&width=300",
+    imageUrl: "/assets/dr-mohammed-rafiq-yassin.jpeg",
   }
 ];
 
