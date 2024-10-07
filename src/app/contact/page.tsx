@@ -1,24 +1,31 @@
-"use client"
+'use client'
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Send, Trash2, Phone, Mail, MapPin } from "lucide-react";
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { Send, Trash2, Phone, Mail, MapPin } from "lucide-react"
+import { toast } from "sonner"
 
 export default function ContactForm() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", { name, email, message });
-  };
+    e.preventDefault()
+    
+    const mailtoLink = `mailto:extracaremedicalcenter16@gmail.com?subject=New Contact Form Submission&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0AMessage: ${encodeURIComponent(message)}`
+    
+    window.location.href = mailtoLink
+    
+    toast.success("Email client opened with your message. Please send the email to complete the process.")
+    handleReset()
+  }
 
   const handleReset = () => {
-    setName("");
-    setEmail("");
-    setMessage("");
-  };
+    setName("")
+    setEmail("")
+    setMessage("")
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 to-indigo-100 flex items-center justify-center p-4">
@@ -36,28 +43,24 @@ export default function ContactForm() {
                 <div className="bg-white bg-opacity-20 p-3 rounded-full">
                   <Phone className="w-6 h-6" />
                 </div>
-                <span className="text-lg">+1 (555) 123-4567</span>
+                <span className="text-lg">+971 58 585 5829</span>
               </div>
               <div className="flex items-center space-x-4">
                 <div className="bg-white bg-opacity-20 p-3 rounded-full">
                   <Mail className="w-6 h-6" />
                 </div>
-                <span className="text-lg">info@ecmc.com</span>
+                <span className="text-lg">extracaremedicalcenter16@gmail.com</span>
               </div>
               <div className="flex items-center space-x-4">
                 <div className="bg-white bg-opacity-20 p-3 rounded-full">
                   <MapPin className="w-6 h-6" />
                 </div>
-                <span className="text-lg">123 Medical Center Dr, City, State 12345</span>
+                <span className="text-lg">Al Nahel tower, National Bank of Oman bldg, beside Nissan Showroom, Najda street , Abu Dhabi</span>
               </div>
             </div>
           </div>
           <div className="p-10 md:w-3/5">
-            <form
-              onSubmit={handleSubmit}
-              onReset={handleReset}
-              className="space-y-8"
-            >
+            <form onSubmit={handleSubmit} onReset={handleReset} className="space-y-8">
               <div>
                 <label
                   htmlFor="name"
@@ -140,5 +143,5 @@ export default function ContactForm() {
         </div>
       </motion.div>
     </div>
-  );
+  )
 }

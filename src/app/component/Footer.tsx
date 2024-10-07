@@ -10,7 +10,8 @@ import {
   faWhatsapp,
   faXTwitter
 } from "@fortawesome/free-brands-svg-icons";
-import React from "react";
+
+import React from "react";  
 
 const specialties = [
   "Dental",
