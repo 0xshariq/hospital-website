@@ -14,22 +14,22 @@ type ImageData = {
 
 const images: ImageData[] = [
   {
-    src: "https://lh5.googleusercontent.com/p/AF1QipMOVKA-8qYyluXjLmEiwwtaIxdZXebUo-wYpOjr=w480-h300-k-n-rw",
-    alt: "Modern hospital building",
-    caption: "State-of-the-art facilities for your care",
-    title: "World-Class Facilities"
+    src: "/assets/image-slider-1.jpg",
+    alt: "",
+    caption: "",
+    title: ""
   },
   {
-    src: "https://www.priviahealth.com/wp-content/uploads/2019/09/03_20_17_Why-the-Doctor-Patient-Relationship-is-Important-e1530037975292-1200x800.jpg",
-    alt: "Doctor with patient",
-    caption: "Compassionate care from experienced professionals",
-    title: "Expert Medical Care"
+    src: "",
+    alt: "",
+    caption: "",
+    title: ""
   },
   {
-    src: "https://img.freepik.com/premium-photo/advanced-medical-equipment-devices-modern-operating-rooms_956920-25414.jpg",
-    alt: "Advanced medical equipment",
-    caption: "Cutting-edge technology for accurate diagnostics",
-    title: "Advanced Technology"
+    src: "",
+    alt: "",
+    caption: "",
+    title: ""
   }
 ]
 
