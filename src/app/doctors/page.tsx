@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 
 interface Doctor {
   id: number;
@@ -130,6 +130,9 @@ export default function DoctorsPage() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center mb-8">
+          <p className="text-lg font-medium text-teal-600">Tap a Card to View Doctor&apos;s Profile</p>
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -145,6 +148,8 @@ export default function DoctorsPage() {
               key={doctor.id}
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 300 }}
+              onClick={() => setSelectedDoctor(doctor)}
+              className="cursor-pointer"
             >
               <Card className="flex flex-col h-full overflow-hidden transition-shadow duration-300 ease-in-out hover:shadow-2xl bg-white rounded-2xl">
                 <CardContent className="p-0 flex-grow">
@@ -156,7 +161,7 @@ export default function DoctorsPage() {
                       height={300}
                       className="w-full h-full object-cover object-center"
                     />
-                    </div>
+                  </div>
                   <div className="p-6">
                     <h2 className="text-2xl font-semibold text-gray-800 mb-2 transition-colors duration-300 hover:text-teal-600">
                       {doctor.name}
@@ -175,14 +180,6 @@ export default function DoctorsPage() {
                     </p>
                   </div>
                 </CardContent>
-                <CardFooter className="bg-gray-50 mt-auto">
-                  <Button
-                    onClick={() => setSelectedDoctor(doctor)}
-                    className="w-full bg-teal-600 hover:bg-teal-700 text-white transition-colors duration-300 ease-in-out"
-                  >
-                    View Profile
-                  </Button>
-                </CardFooter>
               </Card>
             </motion.div>
           ))}
