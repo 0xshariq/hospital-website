@@ -33,25 +33,25 @@ const images: ImageData[] = [
   {
     src: "/assets/image-slider/image-slider-4.jpeg",
     alt: "Teeth Whitening",
-    caption: "Teeth",
+    caption: "Teeth whitening procedure for a brighter smile.",
     title: "Teeth Whitening"
   },
   {
     src: "/assets/image-slider/image-slider-5.jpeg",
     alt: "Root Canal Plus Crown Treatment",
-    caption: "Root ",
+    caption: "Root canal treatment followed by crown placement.",
     title: "Root Canal Plus Crown Treatment"
   },
   {
     src: "/assets/image-slider/image-slider-6.jpeg",
     alt: "Deep Cleaning of Teeth",
-    caption: "",
+    caption: "Professional deep cleaning for optimal oral health.",
     title: "Deep Cleaning of Teeth"
   },
   {
     src: "/assets/image-slider/image-slider-7.jpeg",
     alt: "Denture",
-    caption: "",
+    caption: "Custom-made dentures for a natural-looking smile.",
     title: "Denture"
   }
 ]
@@ -87,7 +87,7 @@ export default function EnhancedImageSlider() {
   }, [isTransitioning])
 
   return (
-    <div className="relative w-full h-[66.67vh] bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+    <div className="relative w-full h-[80vh] bg-gray-100 rounded-lg shadow-lg overflow-hidden">
       <div className="absolute inset-0">
         {images.map((image, index) => (
           <div
@@ -107,9 +107,11 @@ export default function EnhancedImageSlider() {
               className="object-contain"
               priority={index === currentIndex}
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent text-white p-6 transform transition-transform duration-500 ease-in-out translate-y-0 hover:translate-y-1">
-              <h3 className="text-xl font-semibold mb-2">{image.title}</h3>
-              <p className="text-sm">{image.caption}</p>
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <div className="text-black">
+                <h3 className="text-2xl font-semibold mb-2">{image.title}</h3>
+                <p className="text-base">{image.caption}</p>
+              </div>
             </div>
           </div>
         ))}
@@ -134,7 +136,7 @@ export default function EnhancedImageSlider() {
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-3 h-3 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-all duration-300 ease-in-out ${
-              index === currentIndex ? 'bg-white scale-125' : 'bg-gray-400 hover:bg-gray-300'
+              index === currentIndex ? 'bg-black scale-125' : 'bg-gray-400 hover:bg-gray-300'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

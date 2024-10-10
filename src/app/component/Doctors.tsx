@@ -21,7 +21,7 @@ const doctors: Doctor[] = [
     specialization: "Specialist Dentist",
     hospital: "Extra Care Medical Center",
     location: "Abu Dhabi",
-    imageUrl: "/assets/dr-abeer-khan.jpeg",
+    imageUrl: "/assets/doctors/dr-abeer-khan.jpeg",
   },
   {
     id: "2",
@@ -29,7 +29,7 @@ const doctors: Doctor[] = [
     specialization: "Specialist Cardiologist & Internal Medicine",
     hospital: "Extra Care Medical Center",
     location: "Abu Dhabi",
-    imageUrl: "/assets/dr-mohammed-rafiq-yassin.jpeg",
+    imageUrl: "/assets/doctors/dr-mohammed-rafiq-yassin.jpeg",
   }
 ];
 
