@@ -13,22 +13,46 @@ type ImageData = {
 
 const images: ImageData[] = [
   {
-    src: "/assets/image-slider-1.jpg",
+    src: "/assets/image-slider/image-slider-1.jpg",
     alt: "Vitamin B Test",
     caption: "Vitamin B Test is a test to measure the levels of vitamin B in the body.",
     title: "Vitamin B Test"
   },
   {
-    src: "/assets/image-slider-2.png",
+    src: "/assets/image-slider/image-slider-2.png",
     alt: "Breast Cancer Test",
     caption: "Breast Cancer Test is a test to detect the presence of breast cancer.",
     title: "Breast Cancer Test"
   },
   {
-    src: "/assets/image-slider-3.png",
+    src: "/assets/image-slider/image-slider-3.png",
     alt: "Cancer Laboratory Tests",
     caption: "Cancer Laboratory Tests are a series of tests to detect the presence of cancer.",
     title: "Cancer Laboratory Tests"
+  },
+  {
+    src: "/assets/image-slider/image-slider-4.jpeg",
+    alt: "Teeth Whitening",
+    caption: "Teeth",
+    title: "Teeth Whitening"
+  },
+  {
+    src: "/assets/image-slider/image-slider-5.jpeg",
+    alt: "Root Canal Plus Crown Treatment",
+    caption: "Root ",
+    title: "Root Canal Plus Crown Treatment"
+  },
+  {
+    src: "/assets/image-slider/image-slider-6.jpeg",
+    alt: "Deep Cleaning of Teeth",
+    caption: "",
+    title: "Deep Cleaning of Teeth"
+  },
+  {
+    src: "/assets/image-slider/image-slider-7.jpeg",
+    alt: "Denture",
+    caption: "",
+    title: "Denture"
   }
 ]
 
