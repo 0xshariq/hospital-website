@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 
+// Type definition for the image data
 type ImageData = {
   src: string
   alt: string
@@ -11,6 +11,7 @@ type ImageData = {
   title: string
 }
 
+// Array of images with their corresponding alt text, caption, and title
 const images: ImageData[] = [
   {
     src: "/assets/image-slider/image-slider-1.jpg",
@@ -57,28 +58,30 @@ const images: ImageData[] = [
 ]
 
 export default function EnhancedImageSlider() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isTransitioning, setIsTransitioning] = useState(false)
+  const [currentIndex, setCurrentIndex] = useState(0) // Manage the current slide index
+  const [isTransitioning, setIsTransitioning] = useState(false) // Track if slide transition is in progress
+  const [isPaused, setIsPaused] = useState(false) // Pause the slider on hover
 
-  const nextSlide = () => {
+  // Function to move to the next slide
+  const nextSlide = useCallback(() => {
     if (!isTransitioning) {
       setIsTransitioning(true)
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
     }
-  }
+  }, [isTransitioning])
 
-  const prevSlide = () => {
-    if (!isTransitioning) {
-      setIsTransitioning(true)
-      setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
-    }
-  }
-
+  // Automatically advance slides every 5 seconds unless paused
   useEffect(() => {
-    const timer = setInterval(nextSlide, 5000) // Auto-advance every 5 seconds
-    return () => clearInterval(timer)
-  }, [])
+    let timer: NodeJS.Timeout | null = null
+    if (!isPaused) {
+      timer = setInterval(nextSlide, 5000)
+    }
+    return () => {
+      if (timer) clearInterval(timer)
+    }
+  }, [isPaused, nextSlide])
 
+  // Reset the transition state after a brief delay
   useEffect(() => {
     if (isTransitioning) {
       const timer = setTimeout(() => setIsTransitioning(false), 500)
@@ -86,8 +89,22 @@ export default function EnhancedImageSlider() {
     }
   }, [isTransitioning])
 
+  // Pause slide show on mouse hover
+  const handleMouseEnter = () => {
+    setIsPaused(true)
+  }
+
+  // Resume slide show on mouse leave
+  const handleMouseLeave = () => {
+    setIsPaused(false)
+  }
+
   return (
-    <div className="relative w-full h-[80vh] bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+    <div 
+      className="relative w-full h-[80vh] bg-gray-100 rounded-lg shadow-lg overflow-hidden"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <div className="absolute inset-0">
         {images.map((image, index) => (
           <div
@@ -116,20 +133,8 @@ export default function EnhancedImageSlider() {
           </div>
         ))}
       </div>
-      <button
-        onClick={prevSlide}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-all duration-300 ease-in-out hover:scale-110"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft className="w-6 h-6 text-gray-800" />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-all duration-300 ease-in-out hover:scale-110"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="w-6 h-6 text-gray-800" />
-      </button>
+
+      {/* Dots to indicate the current slide */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {images.map((_, index) => (
           <button
